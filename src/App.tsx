@@ -1,15 +1,22 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Todo } from "./entities/todo";
 import TodoHeader from "./components/todo_header/todo_header";
 import TodoList from "./components/todo_list/todo_list";
 import TodoFooter from "./components/todo_footer/todo_footer";
 
-import styles from './App.module.css'
+import styles from './App.module.css';
 
 const App: React.FC = () => {
-  const [todos, setTodos] = useState<Todo[]>([]);
+  const [todos, setTodos] = useState<Todo[]>(() => {
+    const savedTodos = localStorage.getItem("todos");
+    return savedTodos ? JSON.parse(savedTodos) : [];
+  });
   const [filter, setFilter] = useState<'all' | 'active' | 'completed'>('all');
   const [newTodo, setNewTodo] = useState<string>('');
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
 
   const addTodo = () => {
     if (newTodo.trim()) {
