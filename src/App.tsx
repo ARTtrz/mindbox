@@ -60,6 +60,9 @@ const App: React.FC = () => {
         <TodoList todos={filteredTodos} toggleTodo={toggleTodo} removeTodo={removeTodo} setTodos={setTodos} />
         <TodoFooter todos={todos} filter={filter} setFilter={setFilter} clearCompleted={clearCompleted} />
       </div>
+      <div className={styles.caption}>
+        If you want to edit a todo, just double-click.
+      </div>
     </div>
   );
 };
