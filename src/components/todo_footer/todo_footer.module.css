@@ -1,0 +1,33 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 15px;
+  font-size: 14px;
+  color: #777;
+  background: #f9f9f9;
+  border-top: 1px solid #e6e6e6;
+}
+
+.filters button {
+  margin: 0 5px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: inherit;
+}
+
+.filters button.selected {
+  border: 1px solid rgba(175, 47, 47, 0.2);
+  border-radius: 3px;
+}
+
+.clear_completed {
+  background: none;
+  border: none;
+  color: #cc9a9a;
+  cursor: pointer;
+}
+
+.clear_completed:hover {
+  color: #af5b5e;
+}
